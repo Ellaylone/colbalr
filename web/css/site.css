@@ -15,6 +15,7 @@ body {
     margin: 0 auto -101px;
     padding: 0 0 101px;
     background: url('../images/bg.jpg') repeat left top;
+    overflow: hidden;
 }
 
 .navbar {
@@ -57,7 +58,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 100px 15px 20px;
+    padding: 100px 0px 20px;
 }
 
 .footer {
@@ -67,7 +68,7 @@ body {
 }
 
 .footer .footer-brand__logo {
-    background: url('../images/logo.png') 0 -44px;
+    background: url('../images/logo.png') 0 -43px;
     height: 44px;
     width: 250px;
 }
@@ -138,6 +139,41 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+.contacts {
+    margin-top: 35px;
+    width: 100%;
+    min-height: 453px;
+    background: url('../images/balls.png') center top no-repeat;
+}
+
+.contacts-info {
+    position: relative;
+    padding: 395px 0 50px 0;
+    text-align: center;
+}
+
+.contacts-info p {
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contacts-info i {
+    color: #96f000;
+    font-size: 20px;
+}
+
+.content {
+    background-color: #ffffff;
+    color: #000000;
+    font: 18px Verdana, sans-serif;
+}
+
+.content > .container {
+    padding: 15px 50px 40px;
+}
+
 @media (max-width: 768px) {
     .footer {
         height: auto;
@@ -184,5 +220,57 @@ a.desc:after {
         background-size: 150px 52px;
         height: 26px;
         background-position: left bottom;
+    }
+
+    .footer-copy {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 1240px){
+    .wrap > .container {
+        width: 1240px;
+    }
+}
+
+@media (max-width: 892px){
+    .content > .container {
+        padding: 15px 10px 40px;
+    }
+}
+
+@media (min-width: 1200px){
+    .wrap > .container {
+        width: 100%;
+    }
+
+    .navbar-fixed-top > .container {
+        padding: 0 40px;
+    }
+
+    .footer > .container {
+        padding-left: 17px;
+    }
+
+    .navbar .navbar-brand {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1240px){
+    /*.navbar-fixed-top > .container, .footer > .container {
+        width: 1080px;
+    }*/
+}
+
+@media (max-width: 1200px){
+    .wrap > .container {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px){
+    .container {
+        width: 960px;
     }
 }

@@ -11,10 +11,10 @@ use yii\db\ActiveRecord;
  * @property User|null $user This property is read-only.
  *
  */
-class Pages extends ActiveRecord
+class Contacts extends ActiveRecord
 {
     public static function tableName()
     {
-        return Yii::$app->db->tablePrefix . 'pages';
+        return Yii::$app->db->tablePrefix . 'contacts';
     }
 }

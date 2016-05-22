@@ -9,6 +9,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Pages;
+use app\models\Contacts;
+use app\models\ContactTypes;
 
 class SiteController extends Controller
 {
@@ -50,8 +52,18 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $model = new Pages('homepage');
-        return $this->render('index');
+        $page = Pages::find()
+            ->where(['url' => "homepage"])
+            ->one();
+
+        $contacts = Contacts::findBySql('select * from ' . Contacts::tableName())->all();
+        $contactTypes = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sort ASC')->all();
+
+        return $this->render('index', [
+            'page' => $page,
+            'contacts' => $contacts,
+            'contactTypes' => $contactTypes,
+        ]);
     }
 
     public function actionLogin()
