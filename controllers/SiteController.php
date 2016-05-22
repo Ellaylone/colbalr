@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Pages;
 
 class SiteController extends Controller
 {
@@ -49,6 +50,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $model = new Pages('homepage');
         return $this->render('index');
     }
 

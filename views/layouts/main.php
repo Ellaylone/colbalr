@@ -35,22 +35,12 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => [
+            ['label' => '<span class="fa fa-home" aria-hidden="true"></span>', 'url' => ['/site/index']],
             ['label' => 'о нас', 'url' => ['/site/about']],
             ['label' => 'наши работы', 'url' => ['/site/about']],
             ['label' => 'контакты', 'url' => ['/site/about']],
-            // Yii::$app->user->isGuest ? (
-            //     ['label' => 'Login', 'url' => ['/site/login']]
-            // ) : (
-            //     '<li>'
-            //     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-            //     . Html::submitButton(
-            //         'Logout (' . Yii::$app->user->identity->username . ')',
-            //         ['class' => 'btn btn-link']
-            //     )
-            //     . Html::endForm()
-            //     . '</li>'
-            // )
         ],
     ]);
     NavBar::end();
