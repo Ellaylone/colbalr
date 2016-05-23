@@ -129,7 +129,7 @@ $this->title = $page->title;
             <form>
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                    <?= $form->field($model, 'name')->textInput(['autofocus' => true, 'placeholder' => 'Имя:']) ?>
+                    <?= $form->field($model, 'name')->textInput(['placeholder' => 'Имя:']) ?>
 
                     <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail:']) ?>
 
