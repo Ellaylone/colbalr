@@ -5,6 +5,12 @@ body {
     font-family: Verdana, sans-serif;
 }
 
+h1, h2, h3 {
+    text-transform: uppercase;
+    font: 36px Verdana, sans-serif;
+    text-align: center;
+}
+
 .row {
     margin: 0;
 }
@@ -346,6 +352,7 @@ a.desc:after {
 .contactsForm h2{
     text-transform: uppercase;
     margin-top: 0px;
+    text-align: left;
 }
 
 .contactsForm .contacts-info {
@@ -354,6 +361,60 @@ a.desc:after {
 
 .contactsForm .contacts-info i {
     color: #ffffff;
+}
+
+.contactsForm label {
+    display: none;
+}
+
+.contactsForm button {
+    box-sizing: content-box;
+    padding: 0px;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    background-color: #505050;
+    font: 18px Verdana, sans-serif;
+    line-height: 40px;
+    border: 0px !important;
+}
+
+.contactsForm button:hover {
+    background-color: #75bf05;
+}
+
+.contactsForm .form-control, .contactsForm button {
+    border-radius: 0px;
+}
+
+.contactsForm input, .contactsForm textarea {
+    font: 18px Verdana, sans-serif;
+    border: 0px !important;
+}
+
+.contactsForm input::-webkit-input-placeholder, .contactsForm textarea::-webkit-input-placeholder  {
+    color: #646464;
+}
+
+.contactsForm input:-moz-placeholder, .contactsForm textarea:-moz-placeholder   { /* Firefox 18- */
+    color: #646464;  
+}
+
+.contactsForm input::-moz-placeholder, .contactsForm textarea::-moz-placeholder   {  /* Firefox 19+ */
+    color: #646464;  
+}
+
+.contactsForm input:-ms-input-placeholder, .contactsForm textarea:-ms-input-placeholder   {  
+    color: #646464;  
+}
+
+.contactsForm .field-contactform-body {
+    margin-bottom: 0px;
+}
+
+.contactsForm .field-contactform-body .help-block {
+    display: none !important;
+    margin: 0px;
 }
 
 @media (max-width: 768px) {

@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\captcha\Captcha;
 
 /* @var $this yii\web\View */
 
@@ -81,7 +83,7 @@ $this->title = $page->title;
 </div>
 <div class="contactsForm">
     <div class="contactsForm-inner container">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <a class="dg-widget-link" href="http://2gis.ru/kurgan/firm/1407903164707436/center/65.31811952590944,55.47548492036175/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Кургана</a>
             <div class="dg-widget-link">
                 <a href="http://2gis.ru/kurgan/center/65.317899,55.474241/zoom/16/routeTab/rsType/bus/to/65.317899,55.474241╎Лаборатория рекламы, мастерская?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Лаборатория рекламы, мастерская</a>
@@ -90,7 +92,7 @@ $this->title = $page->title;
             <script charset="utf-8">new DGWidgetLoader({"width":550,"height":550,"borderColor":"#a3a3a3","pos":{"lat":55.47548492036175,"lon":65.31811952590944,"zoom":16},"opt":{"city":"kurgan"},"org":[{"id":"1407903164707436"}]});</script>
             <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <h2>Контакты</h2>
             <div class="contacts-info">
                 <?php
@@ -124,6 +126,19 @@ $this->title = $page->title;
             </div>
             <h2>Обратная связь</h2>
             <form>
+                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+
+                    <?= $form->field($model, 'name')->textInput(['autofocus' => true, 'placeholder' => 'Имя:']) ?>
+
+                    <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail:']) ?>
+
+                    <?= $form->field($model, 'body')->textArea(['rows' => 6, 'placeholder' => 'Текст сообщения']) ?>
+
+                    <div class="form-group">
+                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    </div>
+
+                <?php ActiveForm::end(); ?>
             </form>
         </div>
     </div>

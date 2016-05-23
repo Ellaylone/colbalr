@@ -64,6 +64,7 @@ class SiteController extends Controller
             ->where(['status' => 1, 'carousel' => 1])
             ->orderBy('sort')
             ->all();
+        $model = new ContactForm();
 
         return $this->render('index', [
             'page' => $page,
@@ -73,6 +74,7 @@ class SiteController extends Controller
             'items' => $items,
             'catalogLimit' => 8,
             'partnersLimit' => 4,
+            'model' => $model,
         ]);
     }
 
