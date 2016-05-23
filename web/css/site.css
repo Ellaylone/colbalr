@@ -18,8 +18,8 @@ h1, h2, h3 {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -120px;
-    padding: 0 0 101px;
+    margin: 0 auto -101px;
+    padding: 0 0 81px;
     background: url('../images/bg.jpg') repeat left top;
     overflow: hidden;
 }
@@ -213,15 +213,20 @@ a.desc:after {
     height: 243px;
 }
 
-.catalog .carousel .item a div {
-    width: 100%;
+.catalog .carousel .item a div,
+.catalog-all__one div {
+    width: 243px;
     height: 100%;
     position: absolute;
+    z-index: 1;
 }
 
 .catalog .carousel .item a:hover div,
 .catalog .carousel .item a:active div,
-.catalog .carousel .item a:focus div{
+.catalog .carousel .item a:focus div,
+.catalog-all__one:hover div,
+.catalog-all__one:active div,
+.catalog-all__one:focus div{
     background: -moz-linear-gradient(45deg,  rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -417,7 +422,22 @@ a.desc:after {
     margin: 0px;
 }
 
-@media (max-width: 768px) {
+.catalog-all {}
+
+.catalog-all__one {
+    display: block;
+    margin: 15px auto;
+}
+
+.catalog-all__one > img {
+    border: 1px solid #ffffff;
+    height: 243px;
+    width: 243px;
+    position: relative;
+    box-sizing: content-box;
+}
+
+@media (max-width: 767px) {
     .footer {
         height: auto;
         min-height: 101px;

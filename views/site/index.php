@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
@@ -48,7 +49,7 @@ $this->title = $page->title;
     $i = 0;
     foreach ($items as $key => $item) {
         $i++;
-        $slide .= Html::a(Html::tag('div') . Html::img('uploads/' . $item->thumb), "#");
+        $slide .= Html::a(Html::tag('div') . Html::img('uploads/' . $item->thumb), Url::to(['catalog/view', 'id' => $item->id]));
         if($i > $catalogLimit - 1){
             $slide = '<div>' . $slide . '</div>';
             array_push($slides, $slide);
@@ -58,7 +59,7 @@ $this->title = $page->title;
     }
     echo yii\bootstrap\Carousel::widget(['items' => $slides, 'controls' => ['', ''], 'options' => ['class' => 'slide']]);
     ?>
-    <a href="#">Показать все</a>
+    <a href="<?= Url::to(['catalog/index']); ?>">Показать все</a>
 </div>
 <div class="partners">
     <div class="partners-inner">
