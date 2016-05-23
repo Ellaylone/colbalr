@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\Pages;
 use app\models\Contacts;
 use app\models\ContactTypes;
+use app\models\Items;
 
 class SiteController extends Controller
 {
@@ -58,11 +59,20 @@ class SiteController extends Controller
 
         $contacts = Contacts::findBySql('select * from ' . Contacts::tableName())->all();
         $contactTypes = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sort ASC')->all();
+        $contracTypesForm = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sortform ASC')->all();;
+        $items = Items::find()
+            ->where(['status' => 1, 'carousel' => 1])
+            ->orderBy('sort')
+            ->all();
 
         return $this->render('index', [
             'page' => $page,
             'contacts' => $contacts,
             'contactTypes' => $contactTypes,
+            'contracTypesForm' => $contracTypesForm,
+            'items' => $items,
+            'catalogLimit' => 8,
+            'partnersLimit' => 4,
         ]);
     }
 

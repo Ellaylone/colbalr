@@ -12,7 +12,7 @@ body {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -101px;
+    margin: 0 auto -120px;
     padding: 0 0 101px;
     background: url('../images/bg.jpg') repeat left top;
     overflow: hidden;
@@ -37,6 +37,7 @@ body {
 
 .navbar-inverse .navbar-nav > .active > a,  .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a:hover{
     color: #96f000;
+    background-color: initial;
 }
 
 .navbar-toggle {
@@ -69,7 +70,7 @@ body {
 
 .footer .footer-brand__logo {
     background: url('../images/logo.png') 0 -43px;
-    height: 44px;
+    height: 45px;
     width: 250px;
 }
 
@@ -146,7 +147,7 @@ a.desc:after {
     background: url('../images/balls.png') center top no-repeat;
 }
 
-.contacts-info {
+.contacts > .contacts-info {
     position: relative;
     padding: 395px 0 50px 0;
     text-align: center;
@@ -156,7 +157,7 @@ a.desc:after {
     display: inline-block;
     font-family: 'FontAwesome';
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .contacts-info i {
@@ -171,7 +172,188 @@ a.desc:after {
 }
 
 .content > .container {
-    padding: 15px 50px 40px;
+    padding: 15px 10px 40px;
+}
+
+.catalog {
+    width: 1076px;
+    margin: 0 auto;
+}
+
+.catalog > h2, .partners-inner > h2 {
+    text-transform: uppercase;
+    font: 36px Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.catalog .carousel-inner {
+    height: 520px;
+}
+
+.catalog .carousel .item a {
+    display: inline-block;
+    border: 1px solid #ffffff;
+    margin-right: 27px;
+    margin-top: 27px;
+    height: 243px;
+    width: 243px;
+    position: relative;
+    box-sizing: content-box;
+}
+
+.catalog .carousel .item a img{
+    width: 243px;
+    height: 243px;
+}
+
+.catalog .carousel .item a div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.catalog .carousel .item a:hover div,
+.catalog .carousel .item a:active div,
+.catalog .carousel .item a:focus div{
+    background: -moz-linear-gradient(45deg,  rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.catalog .carousel .item a:nth-child(-n+4) {
+    margin-top: 0px;
+}
+
+.catalog .carousel .item a:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.catalog .carousel .carousel-indicators {
+    display: none;
+}
+
+.catalog .carousel-control {
+    background: url('../images/catalogArrows.png') no-repeat center right;
+    width: 15px;
+    height: 91px;
+    margin: auto 0;
+}
+
+.catalog .carousel-control.right {
+    background-position: -15px 0;
+    right: -35px;
+}
+
+.catalog .carousel-control.left {
+    background-position: 0 0;
+    left: -35px;
+}
+
+.catalog > a {
+    display: block;
+    margin: 15px auto;
+    color: rgba(255, 255, 255, 0.2);
+    text-decoration: underline;
+    font-size: 18px;
+    width: 130px;
+}
+
+.catalog > a:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.partners {
+    background: #ffffff;
+    padding-bottom: 40px;
+}
+
+.partners-inner > h2 {
+    color: #282828;
+    padding-top: 20px;
+}
+
+.partners-inner {
+    width: 1076px;
+    margin: 0 auto;
+}
+
+.partners .carousel-inner {
+    height: 245px;
+}
+
+.partners .carousel .item img {
+    display: inline-block;
+    border: 1px solid #ffffff;
+    margin-right: 27px;
+    margin-top: 27px;
+    height: 241px;
+    width: 241px;
+    position: relative;
+    box-sizing: content-box;
+}
+
+/*.partners .carousel .item a div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}*/
+
+.partners .carousel .item a:hover div,
+.partners .carousel .item a:active div,
+.partners .carousel .item a:focus div{
+    background: -moz-linear-gradient(45deg,  rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg,  rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.partners .carousel .item img:nth-child(-n+4) {
+    margin-top: 0px;
+}
+
+.partners .carousel .item img:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.partners .carousel .carousel-indicators {
+    display: none;
+}
+
+.partners .carousel-control {
+    background: url('../images/partnerArrows.png') no-repeat center right;
+    width: 15px;
+    height: 91px;
+    margin: auto 0;
+}
+
+.partners .carousel-control.right {
+    background-position: -15px 0;
+    right: -35px;
+}
+
+.partners .carousel-control.left {
+    background-position: 0 0;
+    left: -35px;
+}
+
+.contactsForm {
+    background-color: #1e1e1e;
+    padding: 50px 0;
+}
+
+.contactsForm h2{
+    text-transform: uppercase;
+    margin-top: 0px;
+}
+
+.contactsForm .contacts-info {
+    margin-bottom: 50px;
+}
+
+.contactsForm .contacts-info i {
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -231,17 +413,17 @@ a.desc:after {
     .wrap > .container {
         width: 1240px;
     }
-}
-
-@media (max-width: 892px){
-    .content > .container {
-        padding: 15px 10px 40px;
+    .contactsForm > .container{
+        width: 1200px;
     }
 }
 
 @media (min-width: 1200px){
     .wrap > .container {
         width: 100%;
+    }
+    .contactsForm > .container {
+        width: 1200px;
     }
 
     .navbar-fixed-top > .container {
@@ -270,7 +452,13 @@ a.desc:after {
 }
 
 @media (min-width: 992px){
-    .container {
+    .content > .container {
         width: 960px;
+    }
+}
+
+@media (min-width: 892px){
+    .content > .container {
+        padding: 15px 50px 40px;
     }
 }
