@@ -15,6 +15,8 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
@@ -53,9 +55,9 @@ AppAsset::register($this);
 
 <footer class="footer row">
     <div class="container">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 footer-brand"><div class="footer-brand__logo"></div></div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 footer-brand"><div class="footer-brand__logo"></div></div>
         <p class="col-xs-12 col-sm-6 col-md-6 col-lg-4 footer-copy">Лабратория рекламы 2009-<?= date('Y') ?>&copy;</p>
-        <p class="col-xs-4 col-sm-2 col-md-4 col-lg-4"></p>
+        <p class="hidden-xs hidden-sm col-xs-4 col-sm-2 col-md-3 col-lg-4"></p>
     </div>
 </footer>
 
