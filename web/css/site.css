@@ -453,6 +453,7 @@ a.desc:after {
 .catalog-all__one {
     display: block;
     margin: 15px auto;
+    text-align: center;
 }
 
 .catalog-all__one > img {
@@ -461,6 +462,11 @@ a.desc:after {
     width: 243px;
     position: relative;
     box-sizing: content-box;
+}
+
+.catalog-all__one div {
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .hidden-anchor {
@@ -489,6 +495,12 @@ a.desc:after {
     color: #96f000;
 }
 
+@media (max-width: 900px) {
+    .wrap {
+        background: #0c2f2f;
+    }
+}
+
 @media (max-width: 400px) {
     .contacts {
         background-size: 1000px auto;
@@ -514,12 +526,6 @@ a.desc:after {
 @media (max-width: 570px) {
     .catalog-all__one {
         width: 100%;
-        text-align: center;
-    }
-
-    .catalog-all__one div {
-        left: 50%;
-        transform: translate(-50%, 0);
     }
 }
 
@@ -556,10 +562,6 @@ a.desc:after {
 
     .navbar-nav {
         margin: 0 -15px 16px;
-    }
-
-    .wrap {
-        background: #0c2f2f;
     }
 }
 

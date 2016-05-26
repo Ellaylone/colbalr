@@ -222,7 +222,7 @@ $(document).ready(function() {
 
     //NOTE smooth page jupming
     $(function() {
-        $('a[href*="#"]:not([href="#"])').click(function() {
+        $('nav a[href*="#"]:not([href="#"]), .anchor-top').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 if(target.selector == '#top'){

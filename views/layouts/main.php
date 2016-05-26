@@ -7,7 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
 use app\assets\AppAsset;
+use app\models\Pages;
 
 AppAsset::register($this);
 ?>
@@ -29,22 +31,36 @@ AppAsset::register($this);
 <div class="wrap row">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('images/logo.png'),
+        'brandLabel' => Html::img('/images/logo.png'),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $pages = Pages::find()
+           ->where(['status' => '1'])
+           ->andWhere(['<>', 'url', 'homepage'])
+           ->all();
+
+    $items = [
+        ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
+        ['label' => '<span class="fa fa-home" aria-hidden="true"></span>', 'url' => ['/site/index']],
+        ['label' => 'о нас', 'url' => '#about'],
+        ['label' => 'наши работы', 'url' => '#catalog'],
+        ['label' => 'контакты', 'url' => '#contacts'],
+    ];
+
+    foreach($pages as $k => $page){
+        array_push($items, [
+            'label' => $page->title,
+            'url' => Url::to(['site/view', 'url' => $page->url]),
+        ]);
+    }
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
-        'items' => [
-            ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
-            ['label' => '<span class="fa fa-home" aria-hidden="true"></span>', 'url' => ['/site/index']],
-            ['label' => 'о нас', 'url' => '#about'],
-            ['label' => 'наши работы', 'url' => '#catalog'],
-            ['label' => 'контакты', 'url' => '#contacts'],
-        ],
+        'items' => $items,
     ]);
     NavBar::end();
     ?>

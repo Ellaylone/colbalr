@@ -15,6 +15,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
+            'loginUrl' => ['admin/login'],
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
@@ -38,17 +39,20 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         '<controller:\w+>/<id:\d+>' => '<controller>/view',
-        //         '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-        //         '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-        //     ],
-        // ],
-        
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'catalog' => 'catalog/index',
+                'admin' => 'admin/index',
+                '<url:\w+>' => 'site/view',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
+
     ],
     'params' => $params,
 ];
