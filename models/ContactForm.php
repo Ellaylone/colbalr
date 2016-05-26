@@ -12,7 +12,6 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
-    //public $subject;
     public $body;
     public $verifyCode;
 
@@ -49,6 +48,7 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
+        var_dump('asdasd');
         if ($this->validate()) {
             Yii::$app->mailer->compose()
                 ->setTo($email)

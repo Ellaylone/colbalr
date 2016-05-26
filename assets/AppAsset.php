@@ -21,6 +21,9 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'js/hammer.min.js',
+        'js/hammer-time.min.js',
+        'js/site.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

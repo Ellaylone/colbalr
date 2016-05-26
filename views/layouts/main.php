@@ -39,10 +39,11 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
         'items' => [
+            ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
             ['label' => '<span class="fa fa-home" aria-hidden="true"></span>', 'url' => ['/site/index']],
-            ['label' => 'о нас', 'url' => ['/site/about']],
-            ['label' => 'наши работы', 'url' => ['/site/about']],
-            ['label' => 'контакты', 'url' => ['/site/about']],
+            ['label' => 'о нас', 'url' => '#about'],
+            ['label' => 'наши работы', 'url' => '#catalog'],
+            ['label' => 'контакты', 'url' => '#contacts'],
         ],
     ]);
     NavBar::end();
@@ -61,6 +62,14 @@ AppAsset::register($this);
     </div>
 </footer>
 
+<a class="anchor-top" href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+<?php
+if($this->context->id == 'catalog'){
+?>
+    <script>var showBack = true;</script>
+<?php
+}
+?>
 <?php $this->endBody() ?>
 </body>
 </html>

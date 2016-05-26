@@ -37,54 +37,50 @@ $this->title = $page->title;
     </div>
 </div>
 <div class="content">
+    <a name="about" class="hidden-anchor"></a>
     <div class="container">
         <?=$page->text;?>
     </div>
 </div>
 <div class="catalog">
+    <a name="catalog" class="hidden-anchor"></a>
     <h2>наши работы</h2>
     <?php
-    $slides = [];
-    $slide = '';
-    $i = 0;
+    $catalogCarousel = [];
     foreach ($items as $key => $item) {
-        $i++;
-        $slide .= Html::a(Html::tag('div') . Html::img('uploads/' . $item->thumb), Url::to(['catalog/view', 'id' => $item->id]));
-        if($i > $catalogLimit - 1){
-            $slide = '<div>' . $slide . '</div>';
-            array_push($slides, $slide);
-            $slide = '';
-            $i = 0;
-        }
+        array_push($catalogCarousel, "'" . Html::a(Html::tag('div') . Html::img('uploads/' . $item->thumb), Url::to(['catalog/view', 'id' => $item->id])) . "'");
     }
-    echo yii\bootstrap\Carousel::widget(['items' => $slides, 'controls' => ['', ''], 'options' => ['class' => 'slide']]);
     ?>
+    <div id="catalogCarousel" class="slide carousel">
+        <div class="carousel-inner"></div>
+        <a class="left carousel-control" href="#catalogCarousel" data-slide="prev"></a>
+        <a class="right carousel-control" href="#catalogCarousel" data-slide="next"></a>
+    </div>
+    <script>var catalogCarousel = [<?= implode(',', $catalogCarousel); ?>];</script>
     <a href="<?= Url::to(['catalog/index']); ?>">Показать все</a>
 </div>
 <div class="partners hidden-xs">
     <div class="partners-inner">
         <h2>наши партнеры</h2>
         <?php
-        $slides = [];
-        $slide = '';
-        $i = 0;
+        $partnersCarousel = [];
         foreach ($items as $key => $item) {
-            $i++;
-            $slide .= Html::img('uploads/' . $item->thumb);
-            if($i > $partnersLimit - 1){
-                $slide = '<div>' . $slide . '</div>';
-                array_push($slides, $slide);
-                $slide = '';
-                $i = 0;
-            }
+            array_push($partnersCarousel, "'" . Html::img('uploads/' . $item->thumb) . "'");
         }
-        echo yii\bootstrap\Carousel::widget(['items' => $slides, 'controls' => ['', ''], 'options' => ['class' => 'slide']]);
         ?>
+
+        <div id="partnersCarousel" class="slide carousel">
+            <div class="carousel-inner"></div>
+            <a class="left carousel-control" href="#partnersCarousel" data-slide="prev"></a>
+            <a class="right carousel-control" href="#partnersCarousel" data-slide="next"></a>
+        </div>
+        <script>var partnersCarousel = [<?= implode(',', $partnersCarousel); ?>];</script>
     </div>
 </div>
 <div class="contactsForm">
     <div class="contactsForm-inner container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <a name="contacts" class="hidden-anchor"></a>
             <h2>Контакты</h2>
             <div class="contacts-info">
                 <?php
@@ -113,21 +109,23 @@ $this->title = $page->title;
                 ?>
             </div>
             <h2>Обратная связь</h2>
-            <form>
-                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'contactsForm-form', 'class' => 'contactsForm-form']); ?>
+                <?= $form->field($model, 'name')->textInput(['placeholder' => 'Имя:']) ?>
 
-                    <?= $form->field($model, 'name')->textInput(['placeholder' => 'Имя:']) ?>
+                <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail:']) ?>
 
-                    <?= $form->field($model, 'email')->textInput(['placeholder' => 'E-mail:']) ?>
+                <?= $form->field($model, 'body')->textArea(['rows' => 6, 'placeholder' => 'Текст сообщения']) ?>
+                <div class="contactsForm-form__capcha hidden">
+                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                    'template' => '<div class="row"><div class="col-lg-3"></div><div class="col-lg-3">{image}</div><div class="col-lg-4" style="transform: translate(0%, 25%);">{input}</div><div class="col-lg-2"></div></div>',
+                ]) ?>
+                </div>
 
-                    <?= $form->field($model, 'body')->textArea(['rows' => 6, 'placeholder' => 'Текст сообщения']) ?>
-
-                    <div class="form-group">
-                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                    </div>
+                <div class="form-group">
+                    <?= Html::submitButton('Отправить', ['disabled' => 'disabled', 'class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                </div>
 
                 <?php ActiveForm::end(); ?>
-            </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <a class="dg-widget-link" href="http://2gis.ru/kurgan/firm/1407903164707436/center/65.31811952590944,55.47548492036175/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Кургана</a>
