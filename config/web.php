@@ -54,16 +54,28 @@ $config = [
                 'admin' => 'admin/index',
                 'admin/contacts' => 'contacts/index',
                 'admin/contacts/<action:\w+>/<id:\d+>' => 'contacts/<action>',
+                'admin/pages' => 'pages/index',
+                'admin/pages/<action:\w+>/<id:\d+>' => 'pages/<action>',
+                'admin/items' => 'items/index',
+                'admin/items/<action:\w+>/<id:\d+>' => 'items/<action>',
                 '<url:\w+>' => 'site/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 'admin/contacts/<action:\w+>' => 'contacts/<action>',
+                'admin/pages/<action:\w+>' => 'pages/<action>',
+                'admin/items/<action:\w+>' => 'items/<action>',
             ],
         ],
 
     ],
     'params' => $params,
+    'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {

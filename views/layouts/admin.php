@@ -35,6 +35,8 @@ AdminAsset::register($this);
     ]);
 
     $items = [
+        ['label' => 'Страницы', 'url' => ['/pages/index']],
+        ['label' => 'Каталог', 'url' => ['/items/index']],
         ['label' => 'Контакты', 'url' => ['/contacts/index']],
         ['label' => 'Администраторы', 'url' => ['/admin/index']],
         ['label' => '<span class="fa fa-home" aria-hidden="true"></span> перейти на сайт', 'url' => ['/site/index']],
