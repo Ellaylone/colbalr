@@ -8,10 +8,9 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
-use app\assets\AppAsset;
-use app\models\Pages;
+use app\assets\AdminAsset;
 
-AppAsset::register($this);
+AdminAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,35 +26,20 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-    asdasdasdasdasdl;askjda;lksjd
 <div class="wrap row">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('/images/logo.png'),
-        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $pages = Pages::find()
-           ->where(['status' => '1'])
-           ->andWhere(['<>', 'url', 'homepage'])
-           ->all();
 
     $items = [
-        ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
-        ['label' => '<span class="fa fa-home" aria-hidden="true"></span>', 'url' => ['/site/index']],
-        ['label' => 'о нас', 'url' => '#about'],
-        ['label' => 'наши работы', 'url' => '#catalog'],
-        ['label' => 'контакты', 'url' => '#contacts'],
+        ['label' => 'Контакты', 'url' => ['/contacts/index']],
+        ['label' => 'Администраторы', 'url' => ['/admin/index']],
+        ['label' => '<span class="fa fa-home" aria-hidden="true"></span> перейти на сайт', 'url' => ['/site/index']],
+        ['label' => 'выйти (' . (Yii::$app->user->identity?Yii::$app->user->identity->email:'администратор') . ')', 'url' => ['/admin/logout']],
     ];
-
-    foreach($pages as $k => $page){
-        array_push($items, [
-            'label' => $page->title,
-            'url' => Url::to(['site/view', 'url' => $page->url]),
-        ]);
-    }
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -66,26 +50,23 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
+        <?= Breadcrumbs::widget([
+            'homeLink' => [
+                'label' => Yii::t('yii', 'Админка'),
+                'url' => Url::to(['admin/index']),
+            ],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
         <?= $content ?>
     </div>
 </div>
 
-<footer class="footer row">
+<footer class="footer">
     <div class="container">
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 footer-brand"><div class="footer-brand__logo"></div></div>
-        <p class="col-xs-12 col-sm-6 col-md-6 col-lg-4 footer-copy">Лабратория рекламы 2009-<?= date('Y') ?>&copy;</p>
-        <p class="hidden-xs hidden-sm col-xs-4 col-sm-2 col-md-3 col-lg-4"></p>
+        <p>Лабратория рекламы 2009-<?= date('Y') ?>&copy;</p>
     </div>
 </footer>
 
-<a class="anchor-top" href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-<?php
-if($this->context->id == 'catalog'){
-?>
-    <script>var showBack = true;</script>
-<?php
-}
-?>
 <?php $this->endBody() ?>
 </body>
 </html>

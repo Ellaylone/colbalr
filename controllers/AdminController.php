@@ -6,7 +6,10 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 use app\models\LoginForm;
+use app\models\Admins;
+use app\models\AdminsForm;
 
 class AdminController extends Controller
 {
@@ -20,18 +23,12 @@ class AdminController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'logout'],
+                'only' => ['index', 'update', 'error', 'delete', 'logout'],
                 'rules' => [
                     [
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -41,7 +38,7 @@ class AdminController extends Controller
     {
         return [
             'error' => [
-                'class' => 'yii\web\ErrorAction',
+                'class' => 'admin/error',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -50,15 +47,73 @@ class AdminController extends Controller
         ];
     }
 
+    public function actionError()
+    {
+        return false;
+    }
+
     public function actionIndex()
     {
-        var_dump('asd');
+        $dataProvider = new ActiveDataProvider([
+            'query' => Admins::findBySql('select * from ' . Admins::tableName()),
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+        return $this->render('admins/index', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionUpdate($id)
+    {
+        if($id > 0){
+            $data = Admins::find()->where('id=:id', [':id' => $id])->one();
+            if($data){
+                $model = new AdminsForm($data);
+            } else {
+                $this->redirect(['admins/error']);
+                return false;
+            }
+        } else {
+            $model = new AdminsForm();
+        }
+        if(array_key_exists('AdminsForm', Yii::$app->request->post())){
+            $data = Yii::$app->request->post()['AdminsForm'];
+            if($id > 0){
+                $model = Admins::findOne($id);
+            } else {
+                $model = new Admins();
+            }
+            $model->email = $data['email'];
+            if($data['password'] != ''){
+                $model->password = password_hash($data['password'], PASSWORD_DEFAULT);
+            }
+            $model->save();
+            $this->redirect(['admin/update', 'id' => $model->id]);
+        } else {
+            return $this->render('admins/update', [
+                'id' => $id,
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionDelete($id)
+    {
+        if($id > 0){
+            $model = Admins::findOne($id);
+            if($model){
+                $model->delete();
+            }
+        }
+        $this->redirect(['admin/index']);
     }
 
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            $this->redirect(['admin/index']);
         }
 
         $model = new LoginForm();
@@ -74,6 +129,6 @@ class AdminController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        $this->redirect(['admin/']);
     }
 }

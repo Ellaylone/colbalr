@@ -17,4 +17,8 @@ class ContactTypes extends ActiveRecord
     {
         return Yii::$app->db->tablePrefix . 'contact_types';
     }
+
+    public function getTypeName($typeId){
+        return self::findOne(['id' => $typeId])->icon;
+    }
 }

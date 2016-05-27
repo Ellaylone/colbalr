@@ -16,8 +16,9 @@ $config = [
         ],
         'user' => [
             'loginUrl' => ['admin/login'],
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'app\models\Admins',
+            'enableAutoLogin' => false,
+            'enableSession' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -51,10 +52,13 @@ $config = [
             'rules' => [
                 'catalog' => 'catalog/index',
                 'admin' => 'admin/index',
+                'admin/contacts' => 'contacts/index',
+                'admin/contacts/<action:\w+>/<id:\d+>' => 'contacts/<action>',
                 '<url:\w+>' => 'site/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                'admin/contacts/<action:\w+>' => 'contacts/<action>',
             ],
         ],
 

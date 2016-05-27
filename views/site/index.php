@@ -48,7 +48,7 @@ $this->title = $page->title;
     <?php
     $catalogCarousel = [];
     foreach ($items as $key => $item) {
-        array_push($catalogCarousel, "'" . Html::a(Html::tag('div') . Html::img('uploads/' . $item->thumb), Url::to(['catalog/view', 'id' => $item->id])) . "'");
+        array_push($catalogCarousel, "'" . Html::a(Html::tag('div') . Html::img('/uploads/' . $item->thumb), Url::to(['/catalog/view', 'id' => $item->id])) . "'");
     }
     ?>
     <div id="catalogCarousel" class="slide carousel">
@@ -57,7 +57,7 @@ $this->title = $page->title;
         <a class="right carousel-control" href="#catalogCarousel" data-slide="next"></a>
     </div>
     <script>var catalogCarousel = [<?= implode(',', $catalogCarousel); ?>];</script>
-    <a href="<?= Url::to(['catalog/index']); ?>">Показать все</a>
+    <a href="<?= Url::to(['/catalog/index']); ?>">Показать все</a>
 </div>
 <div class="partners hidden-xs">
     <div class="partners-inner">
@@ -65,7 +65,7 @@ $this->title = $page->title;
         <?php
         $partnersCarousel = [];
         foreach ($items as $key => $item) {
-            array_push($partnersCarousel, "'" . Html::img('uploads/' . $item->thumb) . "'");
+            array_push($partnersCarousel, "'" . Html::img('/uploads/' . $item->thumb) . "'");
         }
         ?>
 
