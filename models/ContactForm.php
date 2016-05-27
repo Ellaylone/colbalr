@@ -48,13 +48,13 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
-        var_dump('asdasd');
         if ($this->validate()) {
             Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setTextBody($this->body)
-                ->send();
+                 ->setTo($email)
+                 ->setSubject('Лаборатория рекламы - Обратная связь')
+                 ->setFrom([$this->email => $this->name])
+                 ->setTextBody($this->body)
+                 ->send();
 
             return true;
         }

@@ -84,8 +84,8 @@ $this->title = $page->title;
             <h2>Контакты</h2>
             <div class="contacts-info">
                 <?php
-                if(sizeof($contacts) > 0 && sizeof($contracTypesForm)){
-                    foreach ($contracTypesForm as $keyType => $type) {
+                if(sizeof($contacts) > 0 && sizeof($contactTypesForm)){
+                    foreach ($contactTypesForm as $keyType => $type) {
                         ?>
                         <div>
                             <?php

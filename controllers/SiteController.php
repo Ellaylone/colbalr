@@ -42,18 +42,24 @@ class SiteController extends Controller
 
         $contacts = Contacts::findBySql('select * from ' . Contacts::tableName())->all();
         $contactTypes = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sort ASC')->all();
-        $contracTypesForm = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sortform ASC')->all();;
+        $contactTypesForm = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sortform ASC')->all();;
         $items = Items::find()
             ->where(['status' => 1, 'carousel' => 1])
             ->orderBy('sort')
             ->all();
         $model = new ContactForm();
 
+        if ($model->load(Yii::$app->request->post()) && $model->contact('heamik91@yandex.ru')) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+
+            return $this->refresh();
+        }
+
         return $this->render('index', [
             'page' => $page,
             'contacts' => $contacts,
             'contactTypes' => $contactTypes,
-            'contracTypesForm' => $contracTypesForm,
+            'contactTypesForm' => $contactTypesForm,
             'items' => $items,
             'catalogLimit' => 8,
             'partnersLimit' => 4,
@@ -63,8 +69,6 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        var_dump($_GET);
-        exit();
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -78,7 +82,17 @@ class SiteController extends Controller
 
     public function actionView($url)
     {
-        var_dump($url);
-        return $this->render('about');
+        $page = Pages::find()
+              ->where(['status' => 1])
+              ->andWhere(['type' => 1])
+              ->andWhere('url=:url', [':url' => $url])
+              ->one();
+
+        if($page){
+            return $this->render('page', [
+                'page' => $page
+            ]);
+        }
+        throw new \yii\web\NotFoundHttpException();
     }
 }

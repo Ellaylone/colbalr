@@ -10,6 +10,12 @@ use app\models\LoginForm;
 
 class AdminController extends Controller
 {
+    public function init()
+    {
+        $this->layout = "admin";
+        parent::init();
+    }
+
     public function behaviors(){
         return [
             'access' => [
