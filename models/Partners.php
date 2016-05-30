@@ -4,7 +4,6 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
-use yii\web\UploadedFile;
 
 /**
  * LoginForm is the model behind the login form.
@@ -12,10 +11,10 @@ use yii\web\UploadedFile;
  * @property User|null $user This property is read-only.
  *
  */
-class Items extends ActiveRecord
+class Partners extends ActiveRecord
 {
     public static function tableName()
     {
-        return Yii::$app->db->tablePrefix . 'items';
+        return Yii::$app->db->tablePrefix . 'partners';
     }
 }

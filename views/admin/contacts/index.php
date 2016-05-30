@@ -34,14 +34,22 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a(
                             '<i class="fa fa-pencil" aria-hidden="true"></i>',
                             $url,
-                            ['class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-6']
+                            [
+                                'class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-6',
+                                'title' => 'Редактировать',
+                                'data-toggle' => 'tooltip',
+                            ]
                         );
                     },
                     'delete' => function($url, $model){
                         return Html::a(
                             '<i class="fa fa-trash" aria-hidden="true"></i>',
                             $url,
-                            ['class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-6']
+                            [
+                                'class' => 'col-lg-6 col-md-6 col-sm-6 col-xs-6',
+                                'title' => 'Удалить',
+                                'data-toggle' => 'tooltip',
+                            ]
                         );
                     },
                 ],

@@ -20,7 +20,7 @@ class AdminsForm extends Model
     public function rules()
     {
         return [
-            [['email'], 'required'],
+            [['email'], 'required', 'message' => '{attribute} не может быть пустым'],
             ['email', 'email'],
         ];
     }

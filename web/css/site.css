@@ -28,20 +28,49 @@ h1, h2, h3 {
     height: 80px;
     top: 20px;
     background-color: rgba(0, 0, 0, 0.5);
+    border: 0px;
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li > .dropdown-menu {
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    margin-top: 0px;
+    border-top: 1px solid black;
+    padding: 0px;
+    background: none;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a,
+.navbar-inverse .navbar-nav > li > .dropdown-menu li > a {
     color: #fff;
     font-family: 'FontAwesome';
     font-size: 16px;
     line-height: 22px;
 }
 
-.navbar-inverse .navbar-nav > li > a .fa{
+.navbar-inverse .navbar-nav > li > .dropdown-menu li {
+    margin-bottom: 1px;
+}
+
+.navbar-inverse .navbar-nav > li > .dropdown-menu a,
+.navbar-inverse .navbar-nav > li > .dropdown-menu a:hover,
+.navbar-inverse .navbar-nav > li > .dropdown-menu a:focus,
+.navbar-inverse .navbar-nav > li > .dropdown-menu a:active {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.navbar-inverse .navbar-nav > li > a .fa {
     font-size: 20px;
 }
 
-.navbar-inverse .navbar-nav > .active > a,  .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a:hover{
+.navbar-inverse .navbar-nav .active > a,
+.navbar-inverse .navbar-nav li > a:hover,
+.navbar-inverse .navbar-nav li > a:focus,
+.navbar-inverse .navbar-nav .active > a:hover {
     color: #96f000;
     background-color: initial;
 }
@@ -543,16 +572,19 @@ a.desc:after {
         padding-bottom: 16px;
     }
 
-    .navbar-inverse .navbar-nav > li > a,
-    .navbar-inverse .navbar-nav > li > a:hover,
-    .navbar-inverse .navbar-nav > li > a:focus,
-    .navbar-inverse .navbar-nav > .active > a, 
-    .navbar-inverse .navbar-nav > .active > a:hover, 
-    .navbar-inverse .navbar-nav > .active > a:focus{
+    .navbar-inverse .navbar-nav li > a,
+    .navbar-inverse .navbar-nav li > a:hover,
+    .navbar-inverse .navbar-nav li > a:focus,
+    .navbar-inverse .navbar-nav .active > a, 
+    .navbar-inverse .navbar-nav .active > a:hover, 
+    .navbar-inverse .navbar-nav .active > a:focus,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:active{
         background-color: rgba(0, 0, 0, 0.5);
     }
 
-    .navbar-inverse .navbar-nav > li {
+    .navbar-inverse .navbar-nav li {
         margin-bottom: 1px;
     }
     
@@ -563,12 +595,17 @@ a.desc:after {
     .navbar-nav {
         margin: 0 -15px 16px;
     }
+
+    .navbar-inverse .navbar-nav > li > .dropdown-menu {
+        margin-top: 1px;
+        border: 0px;
+    }
 }
 
 @media (min-width: 767px){
     .navbar-nav > li > a {
         padding-top: 30px;
-        padding-bottom: 15px;
+        padding-bottom: 28px;
     }
     .navbar > .container .navbar-brand {
         margin-left: 0px;

@@ -5,7 +5,7 @@ use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Каталог';
+$this->title = 'Партнеры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="raw">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'columns' => [
             'id:text:Ид',
-            'name:text:Заголовок',
+            'title:text:Название',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{sort}',
@@ -40,26 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{status}{carousel}{update}{delete}',
+                'template' => '{status}{update}{delete}',
                 'buttons' => [
                     'status' => function($url, $model){
                         return Html::a(
-                            '<i style="color: ' . ($model->status ? 'green' : 'red') . '" class="fa fa-eye" aria-hidden="true"></i>',
+                            '<i style="color: ' . ($model->status ? 'green' : 'red') . '" class="fa fa-picture-o" aria-hidden="true"></i>',
                             $url,
                             [
-                                'class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
-                                'title' => ($model->status ? 'Активен: Показывается в каталоге, доступен для просмотра' : 'Неактивен: Не показывается в каталоге, не доступен для просмотра'),
-                                'data-toggle' => 'tooltip',
-                            ]
-                        );
-                    },
-                    'carousel' => function($url, $model){
-                        return Html::a(
-                            '<i style="color: ' . ($model->carousel ? 'green' : 'red') . '" class="fa fa-picture-o" aria-hidden="true"></i>',
-                            $url,
-                            [
-                                'class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
-                                'title' => ($model->carousel ? 'Активен: Выводится в слайдере каталога' : 'Неактивен: Не выводится в слайдере каталога'),
+                                'class' => 'col-lg-4 col-md-4 col-sm-4 col-xs-4',
+                                'title' => ($model->status ? 'Активен: Выводится в слайдере партнеров' : 'Неактивен: Не выводится в слайдере партнеров'),
                                 'data-toggle' => 'tooltip',
                             ]
                         );
@@ -69,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             '<i class="fa fa-pencil" aria-hidden="true"></i>',
                             $url,
                             [
-                                'class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
+                                'class' => 'col-lg-4 col-md-4 col-sm-4 col-xs-4',
                                 'title' => 'Редактировать',
                                 'data-toggle' => 'tooltip',
                             ]
@@ -80,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             '<i class="fa fa-trash" aria-hidden="true"></i>',
                             $url,
                             [
-                                'class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
+                                'class' => 'col-lg-4 col-md-4 col-sm-4 col-xs-4',
                                 'title' => 'Удалить',
                                 'data-toggle' => 'tooltip',
                             ]
@@ -96,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
     <?=Html::a(
         '<i class="fa fa-plus" aria-hidden="true"></i> Добавить',
-        ['/admin/items/update/0'],
+        ['/admin/partners/update/0'],
         ['class' => 'btn btn-primary pull-right']
     );
     ?>

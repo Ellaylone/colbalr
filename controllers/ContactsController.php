@@ -50,10 +50,11 @@ class ContactsController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => AdminContacts::findBySql('select * from ' . AdminContacts::tableName()),
+            'query' => AdminContacts::findBySql('select * from ' . AdminContacts::tableName() . ' order by id'),
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => 100,
             ],
+            'sort' => false,
         ]);
 
         return $this->render('/admin/contacts/index', [

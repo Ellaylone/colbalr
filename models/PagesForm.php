@@ -17,6 +17,9 @@ class PagesForm extends Model
     public $type;
     public $status;
     public $sort;
+    public $parent;
+    public $description;
+    public $keywords;
 
     /**
      * @return array the validation rules.
@@ -24,7 +27,7 @@ class PagesForm extends Model
     public function rules()
     {
         return [
-            [['title', 'text', 'url', 'type', 'status', 'sort'], 'required'],
+            [['title', 'type', 'status', 'sort'], 'required', 'message' => '{attribute} не может быть пустым'],
         ];
     }
 
@@ -41,6 +44,8 @@ class PagesForm extends Model
             'type' => 'Тип',
             'status' => 'Статус',
             'sort' => 'Порядок',
+            'description' => 'META Description',
+            'keywords' => 'META Keywords',
         ];
     }
 

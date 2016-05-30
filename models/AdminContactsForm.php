@@ -20,7 +20,7 @@ class AdminContactsForm extends Model
     public function rules()
     {
         return [
-            [['value', 'type'], 'required'],
+            [['value', 'type'], 'required', 'message' => '{attribute} не может быть пустым'],
         ];
     }
 

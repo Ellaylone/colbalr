@@ -14,9 +14,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className()) ?>
-
     <?= $form->field($model, 'url') ?>
+
+    <?= $form->field($model, 'description')->textarea() ?>
+
+    <?= $form->field($model, 'keywords')->textarea() ?>
+
+    <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
     <div class="form-group">
     <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>

@@ -55,10 +55,11 @@ class AdminController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Admins::findBySql('select * from ' . Admins::tableName()),
+            'query' => Admins::findBySql('select * from ' . Admins::tableName() . ' order by id'),
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => 100,
             ],
+            'sort' => false,
         ]);
         return $this->render('admins/index', [
             'dataProvider' => $dataProvider,

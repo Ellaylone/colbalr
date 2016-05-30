@@ -22,12 +22,13 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
+    <meta name="description" content="<?= Html::encode($this->params['description']) ?>">
+    <meta name="keywords" content="<?= Html::encode($this->params['keywords']) ?>">
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
-
 <div class="wrap row">
     <?php
     NavBar::begin([
@@ -37,24 +38,72 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $homepage = Pages::find()
+          ->where(['status' => '1'])
+          ->andWhere(['url' => 'homepage'])
+          ->one();
     $pages = Pages::find()
-           ->where(['status' => '1'])
-           ->andWhere(['<>', 'url', 'homepage'])
-           ->all();
+          ->where(['type' => '1'])
+          ->orWhere(['parent' => $homepage->id])
+          ->andWhere(['status' => '1'])
+          ->orderBy('sort')
+          ->all();
 
     $items = [
         ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
-        ['label' => '<span class="fa fa-home" aria-hidden="true"></span>', 'url' => ['/site/index']],
-        ['label' => 'о нас', 'url' => '#about'],
-        ['label' => 'наши работы', 'url' => '#catalog'],
-        ['label' => 'контакты', 'url' => '#contacts'],
     ];
 
     foreach($pages as $k => $page){
-        array_push($items, [
-            'label' => $page->title,
-            'url' => Url::to(['site/view', 'url' => $page->url]),
-        ]);
+        $url = '';
+        if($page->type){
+            $url = Url::to(['site/view', 'url' => $page->url]);
+        } else {
+            $url = Url::to(['site/index']) . $page->url;
+        }
+        if($page->url == 'homepage'){
+            $item = [
+                'label' => '<span class="fa fa-home" aria-hidden="true"></span>',
+                'url' => ['/site/index']
+            ];
+            array_push($items, $item);
+
+        } else {
+            if($page->type){
+                $innerPages = Pages::find()
+                    ->where(['parent' => $page->id])
+                    ->andWhere(['status' => '1'])
+                    ->orderBy('sort')
+                    ->all();
+                if(sizeof($innerPages) > 0){
+                    $iItems = [];
+                    foreach($innerPages as $ik => $ipage){
+                        $iItem = [
+                            'label' => $ipage->title,
+                            'url' => Url::to(['site/view', 'url' => $page->url]) . $ipage->url,
+                        ];
+                        array_push($iItems, $iItem);
+                        /* if($ik != sizeof($innerPages) - 1){
+                           array_push($iItems, '<li class="divider"></li>');
+                           } */
+                    }
+                    $item = [
+                        'label' => $page->title,
+                        'items' => $iItems,
+                    ];
+                } else {
+                    $item = [
+                        'label' => $page->title,
+                        'url' => $url,
+                    ];
+                }
+            } else {
+                $item = [
+                    'label' => $page->title,
+                    'url' => $url,
+                ];
+            }
+            array_push($items, $item);
+        }
     }
 
     echo Nav::widget([

@@ -58,6 +58,8 @@ $config = [
                 'admin/pages/<action:\w+>/<id:\d+>' => 'pages/<action>',
                 'admin/items' => 'items/index',
                 'admin/items/<action:\w+>/<id:\d+>' => 'items/<action>',
+                'admin/partners' => 'partners/index',
+                'admin/partners/<action:\w+>/<id:\d+>' => 'partners/<action>',
                 '<url:\w+>' => 'site/view',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
@@ -65,6 +67,7 @@ $config = [
                 'admin/contacts/<action:\w+>' => 'contacts/<action>',
                 'admin/pages/<action:\w+>' => 'pages/<action>',
                 'admin/items/<action:\w+>' => 'items/<action>',
+                'admin/partners/<action:\w+>' => 'partners/<action>',
             ],
         ],
 
@@ -73,7 +76,12 @@ $config = [
     'modules' => [
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
-            'imageAllowExtensions'=>['jpg','png','gif']
+            'imageAllowExtensions'=>['jpg','png','gif'],
+            'uploadDir' => '@webroot/uploads/pages/',
+            'uploadUrl' => '@web/uploads/pages',
+            'widgetClientOptions'=>[
+                'replaceDivs'=>false,
+            ]
         ],
     ],
 ];

@@ -48,7 +48,7 @@ $this->title = $page->title;
     <?php
     $catalogCarousel = [];
     foreach ($items as $key => $item) {
-        array_push($catalogCarousel, "'" . Html::a(Html::tag('div') . Html::img('/uploads/' . $item->thumb), Url::to(['/catalog/view', 'id' => $item->id])) . "'");
+        array_push($catalogCarousel, "'" . Html::a(Html::tag('div') . Html::img('/uploads/items/' . $item->id . '/' . $item->thumb), Url::to(['/catalog/view', 'id' => $item->id])) . "'");
     }
     ?>
     <div id="catalogCarousel" class="slide carousel">
@@ -64,8 +64,8 @@ $this->title = $page->title;
         <h2>наши партнеры</h2>
         <?php
         $partnersCarousel = [];
-        foreach ($items as $key => $item) {
-            array_push($partnersCarousel, "'" . Html::img('/uploads/' . $item->thumb) . "'");
+        foreach ($partners as $key => $partner) {
+            array_push($partnersCarousel, "'" . Html::img('/uploads/partners/' . $partner->id . '/' . $partner->thumb) . "'");
         }
         ?>
 

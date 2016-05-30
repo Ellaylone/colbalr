@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\web\UploadedFile;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -18,14 +19,34 @@ class ItemsForm extends Model
     public $status;
     public $sort;
 
+    public static function tableName()
+    {
+        return Yii::$app->db->tablePrefix . 'items';
+    }
+
     /**
      * @return array the validation rules.
      */
     public function rules()
     {
         return [
-            [['name', 'text', 'thumb', 'carousel', 'status', 'sort'], 'required'],
+            [['thumb'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['name', 'text'], 'required', 'message' => '{attribute} не может быть пустым'],
         ];
+    }
+
+    public function upload(){
+        if ($this->validate()) {
+            if (!file_exists('uploads/items/' . $this->id)) {
+                mkdir('uploads/items/' . $this->id, 0777, true);
+            }
+            $thumbName = Yii::$app->security->generateRandomString() . '.' . $this->thumb->extension;
+            $this->thumb->saveAs('uploads/items/' . $this->id . '/' . $thumbName);
+            $this->thumb = $thumbName;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -42,25 +63,5 @@ class ItemsForm extends Model
             'status' => 'Статус',
             'sort' => 'Порядок',
         ];
-    }
-
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
-     * @return boolean whether the model passes validation
-     */
-    public function contact($email)
-    {
-        if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                 ->setTo($email)
-                 ->setSubject('Лаборатория рекламы - Обратная связь')
-                 ->setFrom([$this->email => $this->name])
-                 ->setTextBody($this->body)
-                 ->send();
-
-            return true;
-        }
-        return false;
     }
 }

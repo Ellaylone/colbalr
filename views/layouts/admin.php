@@ -37,17 +37,19 @@ AdminAsset::register($this);
     $items = [
         ['label' => 'Страницы', 'url' => ['/pages/index']],
         ['label' => 'Каталог', 'url' => ['/items/index']],
+        ['label' => 'Партнеры', 'url' => ['/partners/index']],
         ['label' => 'Контакты', 'url' => ['/contacts/index']],
         ['label' => 'Администраторы', 'url' => ['/admin/index']],
         ['label' => '<span class="fa fa-home" aria-hidden="true"></span> перейти на сайт', 'url' => ['/site/index']],
         ['label' => 'выйти (' . (Yii::$app->user->identity?Yii::$app->user->identity->email:'администратор') . ')', 'url' => ['/admin/logout']],
     ];
-
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'encodeLabels' => false,
-        'items' => $items,
-    ]);
+    if(Yii::$app->user->identity){
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'encodeLabels' => false,
+            'items' => $items,
+        ]);
+    }
     NavBar::end();
     ?>
 

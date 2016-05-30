@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Pages;
 use app\models\Contacts;
+use app\models\Partners;
 use app\models\ContactTypes;
 use app\models\Items;
 
@@ -40,13 +41,20 @@ class SiteController extends Controller
             ->where(['url' => "homepage"])
             ->one();
 
+        $this->view->params['keywords'] = $page->keywords;
+        $this->view->params['description'] = $page->description;
+
         $contacts = Contacts::findBySql('select * from ' . Contacts::tableName())->all();
         $contactTypes = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sort ASC')->all();
         $contactTypesForm = ContactTypes::findBySql('select * from ' . ContactTypes::tableName() . ' order by sortform ASC')->all();;
         $items = Items::find()
-            ->where(['status' => 1, 'carousel' => 1])
-            ->orderBy('sort')
-            ->all();
+               ->where(['status' => 1, 'carousel' => 1])
+               ->orderBy('sort')
+               ->all();
+        $partners = Partners::find()
+               ->where(['status' => 1])
+               ->orderBy('sort')
+               ->all();
         $model = new ContactForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->contact('heamik91@yandex.ru')) {
@@ -63,6 +71,7 @@ class SiteController extends Controller
             'items' => $items,
             'catalogLimit' => 8,
             'partnersLimit' => 4,
+            'partners' => $partners,
             'model' => $model,
         ]);
     }
@@ -89,6 +98,8 @@ class SiteController extends Controller
               ->one();
 
         if($page){
+            $this->view->params['keywords'] = $page->keywords;
+            $this->view->params['description'] = $page->description;
             return $this->render('page', [
                 'page' => $page
             ]);
