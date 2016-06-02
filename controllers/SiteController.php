@@ -31,6 +31,8 @@ class SiteController extends Controller
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'maxLength' => 4,
+                'minLength' => 4,
             ],
         ];
     }
@@ -56,6 +58,11 @@ class SiteController extends Controller
                ->orderBy('sort')
                ->all();
         $model = new ContactForm();
+        $sPages = Pages::find()
+                ->where(['status' => 1])
+                ->andWhere(['customtype' => 1])
+                ->orderBy('sort')
+                ->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->contact('heamik91@yandex.ru')) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -73,6 +80,7 @@ class SiteController extends Controller
             'partnersLimit' => 4,
             'partners' => $partners,
             'model' => $model,
+            'sPages' => $sPages,
         ]);
     }
 

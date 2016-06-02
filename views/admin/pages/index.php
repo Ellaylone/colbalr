@@ -62,13 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{status}{type}{update}{delete}',
+                'template' => '{status}{type}{customtype}{update}{delete}',
                 'buttons' => [
                     'status' => function($url, $model){
                         return Html::a(
                             '<i style="color: ' . ($model->status ? 'green' : 'red') . '" class="fa fa-eye" aria-hidden="true"></i>',
                             $url,
-                            ['class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
+                            ['class' => 'col-lg-2 col-md-2 col-sm-2 col-xs-2',
                              'title' => ($model->status ? 'Видима: Показывается в меню и доступна для просмотра' : 'Скрыта: Не показывается в меню, не доступна для просмотра'),
                              'data-toggle' => 'tooltip',
                             ]
@@ -78,8 +78,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a(
                             '<i style="color: ' . (!$model->type ? 'green' : 'red') . '" class="fa fa-anchor" aria-hidden="true"></i>',
                             $url,
-                            ['class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
+                            ['class' => 'col-lg-2 col-md-2 col-sm-2 col-xs-2',
                              'title' => (!$model->type ? 'Якорь: Указывает на метку на странице' : 'Ссылка: Генерирует простую страницу'),
+                             'data-toggle' => 'tooltip',
+                            ]
+                        );
+                    },
+                    'customtype' => function($url, $model){
+                        return Html::a(
+                            '<i style="color: ' . ($model->customtype ? 'green' : 'red') . '" class="fa fa-globe" aria-hidden="true"></i>',
+                            $url,
+                            ['class' => 'col-lg-2 col-md-2 col-sm-2 col-xs-2',
+                             'title' => ($model->customtype ? 'Выводится ссылкой на молекуле' : 'Выводится в верхнем меню'),
                              'data-toggle' => 'tooltip',
                             ]
                         );
@@ -88,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a(
                             '<i class="fa fa-pencil" aria-hidden="true"></i>',
                             $url,
-                            ['class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
+                            ['class' => 'col-lg-2 col-md-2 col-sm-2 col-xs-2',
                              'title' => 'Редактировать',
                              'data-toggle' => 'tooltip',
                             ]
@@ -98,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a(
                             '<i class="fa fa-trash" aria-hidden="true"></i>',
                             $url,
-                            ['class' => 'col-lg-3 col-md-3 col-sm-3 col-xs-3',
+                            ['class' => 'col-lg-2 col-md-2 col-sm-2 col-xs-2',
                              'title' => 'Удалить',
                              'data-toggle' => 'tooltip',
                             ]

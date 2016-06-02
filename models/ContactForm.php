@@ -53,7 +53,9 @@ class ContactForm extends Model
                  ->setTo($email)
                  ->setSubject('Лаборатория рекламы - Обратная связь')
                  ->setFrom([$this->email => $this->name])
-                 ->setTextBody($this->body)
+                 ->setTextBody('Email: ' . $this->email . '
+Имя: ' . $this->name . '
+Сообщение: ' . $this->body)
                  ->send();
 
             return true;

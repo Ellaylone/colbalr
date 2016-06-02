@@ -23,7 +23,7 @@ class PagesController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'update', 'delete', 'sort', 'status', 'type', 'parent'],
+                'only' => ['index', 'update', 'delete', 'sort', 'status', 'type', 'parent', 'customtype'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -147,6 +147,16 @@ class PagesController extends Controller
         $model = Pages::findOne($id);
         if($model){
             $model->type = intval(!$model->type);
+            $model->save();
+        }
+        $this->redirect(['/pages/index']);
+    }
+
+    public function actionCustomtype($id)
+    {
+        $model = Pages::findOne($id);
+        if($model){
+            $model->customtype = intval(!$model->customtype);
             $model->save();
         }
         $this->redirect(['/pages/index']);

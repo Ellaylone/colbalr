@@ -20,6 +20,7 @@ class PagesForm extends Model
     public $parent;
     public $description;
     public $keywords;
+    public $customtype;
 
     /**
      * @return array the validation rules.
@@ -46,6 +47,7 @@ class PagesForm extends Model
             'sort' => 'Порядок',
             'description' => 'META Description',
             'keywords' => 'META Keywords',
+            'customtype' => 'Молекулы',
         ];
     }
 

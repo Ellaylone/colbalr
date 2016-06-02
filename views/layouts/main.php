@@ -44,21 +44,23 @@ AppAsset::register($this);
           ->one();
     $pages = Pages::find()
           ->where(['type' => '1'])
+          ->andWhere(['parent' => 0])
           ->orWhere(['parent' => $homepage->id])
           ->andWhere(['status' => '1'])
           ->orderBy('sort')
           ->all();
-
     $items = [
         ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
     ];
-
+    $customtype = [
+        'class' => 'customtype'
+    ];
     foreach($pages as $k => $page){
         $url = '';
         if($page->type){
             $url = Url::to(['site/view', 'url' => $page->url]);
         } else {
-            $url = Url::to(['site/index']) . $page->url;
+            $url = '/' . $page->url;
         }
         if($page->url == 'homepage'){
             $item = [
@@ -77,9 +79,14 @@ AppAsset::register($this);
                 if(sizeof($innerPages) > 0){
                     $iItems = [];
                     foreach($innerPages as $ik => $ipage){
+                        if(!$ipage->type){
+                            $iurl = Url::to(['site/view', 'url' => $page->url]) . (substr($ipage->url, 0, 1) === '#' ? '' : '#') . $ipage->url;
+                        } else {
+                            $iurl = Url::to(['site/view', 'url' => $ipage->url]);
+                        }
                         $iItem = [
                             'label' => $ipage->title,
-                            'url' => Url::to(['site/view', 'url' => $page->url]) . $ipage->url,
+                            'url' => $iurl,
                         ];
                         array_push($iItems, $iItem);
                         /* if($ik != sizeof($innerPages) - 1){
@@ -89,17 +96,20 @@ AppAsset::register($this);
                     $item = [
                         'label' => $page->title,
                         'items' => $iItems,
+                        'options' => ($page->customtype ? $customtype : []),
                     ];
                 } else {
                     $item = [
                         'label' => $page->title,
                         'url' => $url,
+                        'options' => ($page->customtype ? $customtype : []),
                     ];
                 }
             } else {
                 $item = [
                     'label' => $page->title,
                     'url' => $url,
+                    'options' => ($page->customtype ? $customtype : []),
                 ];
             }
             array_push($items, $item);

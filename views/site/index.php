@@ -10,6 +10,15 @@ $this->title = $page->title;
 ?>
 <div class="contacts">
     <div class="container contacts-info">
+        <div class="secondary-menu">
+            <?php
+            if(sizeof($sPages) > 0){
+                foreach($sPages as $sk => $spage){
+                    echo Html::a($spage->title, Url::to(['site/view', 'url' => $spage->url]));
+                }
+            }
+            ?>
+        </div>
         <?php
         if(sizeof($contacts) > 0 && sizeof($contactTypes)){
             foreach ($contactTypes as $keyType => $type) {
@@ -122,7 +131,7 @@ $this->title = $page->title;
                 </div>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Отправить', ['disabled' => 'disabled', 'class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

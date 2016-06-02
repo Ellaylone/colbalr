@@ -188,10 +188,71 @@ a.desc:after {
     text-align: center;
 }
 
+.contacts > .contacts-info .secondary-menu {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 460px;
+}
+
+.contacts > .contacts-info .secondary-menu a {
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    position: absolute;
+    text-align: center;
+}
+
+.contacts > .contacts-info .secondary-menu a:hover {
+    color: #96f000;
+    text-decoration: none;
+}
+
+.contacts > .contacts-info .secondary-menu a:first-child {
+    font-size: 36px;
+    left: 107px;
+    top: 276px;
+    width: 203px;
+}
+
+.contacts > .contacts-info .secondary-menu a:nth-child(2) {
+    font-size: 16px;
+    left: -14px;
+    top: 107px;
+    width: 119px;
+}
+
+.contacts > .contacts-info .secondary-menu a:nth-child(3) {
+    font-size: 14px;
+    left: 287px;
+    top: 58px;
+    width: 87px;
+}
+
+.contacts > .contacts-info .secondary-menu a:nth-child(4) {
+    font-size: 14px;
+    left: 796px;
+    top: 96px;
+    width: 88px;
+}
+
+.contacts > .contacts-info .secondary-menu a:nth-child(5) {
+    font-size: 18px;
+    left: 1065px;
+    top: 166px;
+    width: 121px;
+}
+
+.contacts > .contacts-info .secondary-menu a:nth-child(6) {
+    font-size: 36px;
+    left: 852px;
+    top: 332px;
+    width: 175px;
+}
+
 .contacts-info p {
     display: inline-block;
     font-size: 18px;
-    font-weight: 700;
 }
 
 .contacts-info i {
@@ -530,35 +591,81 @@ a.desc:after {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1250px) {
     .contacts {
-        background-size: 1000px auto;
-        min-height: 368px;
+        background-size: 900px;
     }
 
     .contacts > .contacts-info {
-        padding: 310px 0 50px 0;
+        padding-top: 360px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:first-child {
+        font-size: 28px;
+        left: 239px;
+        top: 198px;
+        width: 148px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(2) {
+        font-size: 14px;
+        left: 151px;
+        top: 77px;
+        width: 87px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(3) {
+        font-size: 11px;
+        left: 368px;
+        top: 41px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(4) {
+        font-size: 12px;
+        left: 737px;
+        top: 69px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(5) {
+        font-size: 18px;
+        left: 931px;
+        top: 118px;
+        width: 89px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(6) {
+        font-size: 27px;
+        left: 779px;
+        top: 240px;
+        width: 126px;
     }
 }
 
-@media (max-width: 315px) {
+@media (max-width: 900px) {
     .contacts {
-        background-size: 800px auto;
-        min-height: 308px;
+        background-size: 785px;
     }
 
     .contacts > .contacts-info {
-        padding: 250px 0 50px 0;
-    }
-}
-
-@media (max-width: 570px) {
-    .catalog-all__one {
-        width: 100%;
+        padding-top: 300px;
     }
 }
 
 @media (max-width: 767px) {
+    .contacts {
+        background: url('../images/balls-sm.png') center top no-repeat;
+    }
+
+    .contacts > .contacts-info {
+        padding-top: 330px;
+    }
+
+    .contacts > .contacts-info .secondary-menu {
+        display: none;
+    }
+
     .footer {
         height: auto;
         min-height: 101px;
@@ -599,6 +706,40 @@ a.desc:after {
     .navbar-inverse .navbar-nav > li > .dropdown-menu {
         margin-top: 1px;
         border: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav .customtype {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .contacts {
+        min-height: 368px;
+        background-size: 300px;
+    }
+
+    .contacts > .contacts-info {
+        padding-top: 250px;
+    }
+}
+
+@media (max-width: 315px) {
+    .contacts {
+        background-size: 230px auto;
+        min-height: 308px;
+    }
+
+    .contacts > .contacts-info {
+        padding-top: 195px;
+    }
+}
+
+@media (max-width: 570px) {
+    .catalog-all__one {
+        width: 100%;
     }
 }
 
@@ -667,9 +808,51 @@ a.desc:after {
     }
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1199px){
     .wrap > .container {
         width: 100%;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:first-child {
+        font-size: 28px;
+        left: 139px;
+        top: 198px;
+        width: 148px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(2) {
+        font-size: 14px;
+        left: 51px;
+        top: 77px;
+        width: 87px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(3) {
+        font-size: 11px;
+        left: 268px;
+        top: 41px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(4) {
+        font-size: 12px;
+        left: 637px;
+        top: 69px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(5) {
+        font-size: 18px;
+        left: 831px;
+        top: 118px;
+        width: 89px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(6) {
+        font-size: 27px;
+        left: 679px;
+        top: 240px;
+        width: 126px;
     }
 }
 
@@ -682,6 +865,94 @@ a.desc:after {
 @media (min-width: 892px){
     .content > .container {
         padding: 15px 50px 40px;
+    }
+}
+
+@media (min-width: 892px) and (max-width: 900px){
+    .contacts > .contacts-info .secondary-menu a:first-child {
+        font-size: 28px;
+        left: 29px;
+        top: 198px;
+        width: 148px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(2) {
+        font-size: 14px;
+        left: -59px;
+        top: 77px;
+        width: 87px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(3) {
+        font-size: 11px;
+        left: 158px;
+        top: 41px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(4) {
+        font-size: 12px;
+        left: 527px;
+        top: 69px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(5) {
+        font-size: 18px;
+        left: 721px;
+        top: 118px;
+        width: 89px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(6) {
+        font-size: 27px;
+        left: 569px;
+        top: 240px;
+        width: 126px;
+    }
+}
+
+@media (max-width: 900px) {
+    .contacts > .contacts-info .secondary-menu a:first-child {
+        font-size: 25px;
+        left: 73px;
+        top: 173px;
+        width: 129px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(2) {
+        font-size: 12px;
+        left: -4px;
+        top: 67px;
+        width: 77px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(3) {
+        font-size: 10px;
+        left: 186px;
+        top: 36px;
+        width: 58px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(4) {
+        font-size: 11px;
+        left: 508px;
+        top: 60px;
+        width: 57px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(5) {
+        font-size: 16px;
+        left: 678px;
+        top: 103px;
+        width: 77px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(6) {
+        font-size: 23px;
+        left: 545px;
+        top: 210px;
+        width: 109px;
     }
 }
 
@@ -749,5 +1020,50 @@ a.desc:after {
     .partners-inner .carousel .item img:first-child {
         margin-top: 0px;
         margin-right: 0px;
+    }
+}
+
+
+@media (min-width: 901px) and (max-width: 992px) {
+    .contacts > .contacts-info .secondary-menu a:first-child {
+        font-size: 28px;
+        left: 28px;
+        top: 198px;
+        width: 148px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(2) {
+        font-size: 14px;
+        left: -59px;
+        top: 77px;
+        width: 87px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(3) {
+        font-size: 11px;
+        left: 159px;
+        top: 41px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(4) {
+        font-size: 12px;
+        left: 527px;
+        top: 69px;
+        width: 65px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(5) {
+        font-size: 18px;
+        left: 721px;
+        top: 118px;
+        width: 89px;
+    }
+
+    .contacts > .contacts-info .secondary-menu a:nth-child(6) {
+        font-size: 27px;
+        left: 569px;
+        top: 240px;
+        width: 126px;
     }
 }
