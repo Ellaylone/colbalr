@@ -194,6 +194,7 @@ function contactsFormChange(e) {
 
 $(document).ready(function() {
     if(typeof showBack !== 'undefined'){
+        document.querySelector('.navbar > .container').classList.add('hidden');
         document.querySelector('.catalog-back').classList.remove('hidden');
         var url = '/#catalog';
         if(document.referrer.match('catalog') != null){
@@ -201,7 +202,8 @@ $(document).ready(function() {
         }
         document.querySelector('.catalog-back').closest('a').href = url;
     } else {
-        document.querySelector('.catalog-back').closest('li').classList.add('hidden');
+        document.querySelector('.catalog-back').classList.add('hidden');
+        document.querySelector('.navbar > .container').classList.remove('hidden');
     }
 
     //NOTE anchor top sliding

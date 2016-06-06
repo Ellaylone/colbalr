@@ -31,8 +31,16 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div class="wrap row">
     <?php
+    if(strpos(Url::current(['lg'=>NULL], FALSE), 'catalog') > 0){
+        $backClass = '';
+        $navbarClass = 'hidden';
+    } else {
+        $backClass = 'hidden';
+        $navbarClass = '';
+    }
+    echo Html::a('назад', '#', ['class' => 'catalog-back ' . $backClass]);
     NavBar::begin([
-        'brandLabel' => Html::img('/images/logo.png'),
+        'brandLabel' => ($navbarClass == 'hidden' ? '' : Html::img('/images/logo.png')),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -49,9 +57,7 @@ AppAsset::register($this);
           ->andWhere(['status' => '1'])
           ->orderBy('sort')
           ->all();
-    $items = [
-        ['label' => '<span class="hidden catalog-back">назад</span>', 'url' => '#'],
-    ];
+    $items = [];
     $customtype = [
         'class' => 'customtype'
     ];
@@ -117,7 +123,7 @@ AppAsset::register($this);
     }
 
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right ' . $navbarClass],
         'encodeLabels' => false,
         'items' => $items,
     ]);
