@@ -197,7 +197,7 @@ $(document).ready(function() {
         document.querySelector('.navbar > .container').classList.add('hidden');
         document.querySelector('.catalog-back').classList.remove('hidden');
         var url = '/#catalog';
-        if(document.referrer.match('catalog') != null){
+        if(document.referrer.match('catalog') != null && window.location.pathname != '/catalog'){
             url = document.referrer;
         }
         document.querySelector('.catalog-back').closest('a').href = url;
