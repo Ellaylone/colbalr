@@ -36,6 +36,7 @@ AdminAsset::register($this);
 
     $items = [
         ['label' => 'Страницы', 'url' => ['/pages/index']],
+        ['label' => 'Изображения ', 'url' => ['/images/index']],
         ['label' => 'Каталог', 'url' => ['/items/index']],
         ['label' => 'Партнеры', 'url' => ['/partners/index']],
         ['label' => 'Контакты', 'url' => ['/contacts/index']],

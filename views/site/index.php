@@ -74,7 +74,8 @@ $this->title = $page->title;
         <?php
         $partnersCarousel = [];
         foreach ($partners as $key => $partner) {
-            array_push($partnersCarousel, "'" . Html::img('/uploads/partners/' . $partner->id . '/' . $partner->thumb) . "'");
+            // array_push($partnersCarousel, "'" . Html::a(Html::img('/uploads/partners/' . $partner->id . '/thumb/' . $partner->thumb), '/uploads/partners/' . $partner->id . '/' . $partner->thumb, ['rel' => 'fancybox']) . "'");
+            array_push($partnersCarousel, "'" . Html::img('/uploads/partners/' . $partner->id . '/thumb/' . $partner->thumb) . "'");
         }
         ?>
 

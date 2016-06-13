@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\web\UploadedFile;
+use yii\imagine\Image;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -42,6 +43,8 @@ class ItemsForm extends Model
             }
             $thumbName = Yii::$app->security->generateRandomString() . '.' . $this->thumb->extension;
             $this->thumb->saveAs('uploads/items/' . $this->id . '/' . $thumbName);
+            Image::thumbnail('uploads/items/' . $this->id . '/' . $thumbName, 243, 243)
+                        ->save(Yii::getAlias('uploads/items/' . $this->id . '/' . $thumbName), ['quality' => 100]);
             $this->thumb = $thumbName;
             return true;
         } else {

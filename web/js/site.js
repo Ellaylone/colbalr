@@ -62,7 +62,7 @@ function formCarousel(elem, items, itemLimit, interval){
         if(i == 0) result += `<div class="item"><div>`;
         result += item;
         i++;
-        if(i >= itemLimit || key === catalogCarousel.length - 1){
+        if(i >= itemLimit || key === catalogCarousel.length){
             result += `</div></div>`;
             i = 0;
         }
