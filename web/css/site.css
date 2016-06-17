@@ -39,7 +39,7 @@ h1, h2, h3 {
     z-index: 2;
     margin: 0 auto;
     position: relative;
-    top: 45px;
+    top: 25px;
     width: 100px;
 }
 
@@ -52,7 +52,6 @@ h1, h2, h3 {
 
 .navbar {
     height: 80px;
-    top: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     border: 0px;
     z-index: 1;
