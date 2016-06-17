@@ -71,7 +71,7 @@ echo newerton\fancybox\FancyBox::widget([
         $backClass = 'hidden';
         $navbarClass = '';
     }
-    echo Html::tag('div', Html::a('назад', '#', ['class' => 'catalog-back ' . $backClass]), ['class' => 'back-wrap']);
+    echo Html::tag('div', Html::a('< назад', '#', ['class' => 'catalog-back ' . $backClass]), ['class' => 'back-wrap']);
     NavBar::begin([
         'brandLabel' => ($navbarClass == 'hidden' ? '' : Html::img('/images/logo.png')),
         'brandUrl' => Yii::$app->homeUrl,
