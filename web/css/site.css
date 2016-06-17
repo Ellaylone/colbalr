@@ -20,8 +20,9 @@ h1, h2, h3 {
     height: auto;
     margin: 0 auto -101px;
     padding: 0 0 81px;
-    background: url('../images/bg.jpg') repeat left top;
+    background: url('../images/bg.jpg') no-repeat left top;
     overflow: hidden;
+    background-attachment: fixed;
 }
 
 .back-wrap {
