@@ -1093,3 +1093,15 @@ a.desc:after {
         width: 126px;
     }
 }
+
+@media (min-width: 1175px) {
+    .content .container {
+        width: 1200px;
+    }
+}
+
+@media (min-width: 890px) and (max-width: 1175px) {
+    .content .container {
+        width: 900px;
+    }
+}
