@@ -1105,3 +1105,9 @@ a.desc:after {
         width: 900px;
     }
 }
+
+@media (min-width: 1920px) {
+    .wrap {
+        background-size: 100% 100%;
+    }
+}
