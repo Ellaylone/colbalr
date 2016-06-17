@@ -236,9 +236,9 @@ a.desc:after {
 }
 
 .contacts > .contacts-info .secondary-menu a:first-child {
-    font-size: 36px;
+    font-size: 30px;
     left: 107px;
-    top: 276px;
+    top: 280px;
     width: 203px;
 }
 
@@ -250,30 +250,30 @@ a.desc:after {
 }
 
 .contacts > .contacts-info .secondary-menu a:nth-child(3) {
-    font-size: 14px;
+    font-size: 12px;
     left: 287px;
-    top: 58px;
+    top: 60px;
     width: 87px;
 }
 
 .contacts > .contacts-info .secondary-menu a:nth-child(4) {
-    font-size: 14px;
+    font-size: 12px;
     left: 796px;
-    top: 96px;
+    top: 98px;
     width: 88px;
 }
 
 .contacts > .contacts-info .secondary-menu a:nth-child(5) {
-    font-size: 18px;
+    font-size: 16px;
     left: 1065px;
-    top: 166px;
+    top: 168px;
     width: 121px;
 }
 
 .contacts > .contacts-info .secondary-menu a:nth-child(6) {
-    font-size: 36px;
+    font-size: 30px;
     left: 852px;
-    top: 332px;
+    top: 336px;
     width: 175px;
 }
 
@@ -628,44 +628,44 @@ a.desc:after {
     }
 
     .contacts > .contacts-info .secondary-menu a:first-child {
-        font-size: 28px;
+        font-size: 24px;
         left: 239px;
-        top: 198px;
+        top: 202px;
         width: 148px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(2) {
-        font-size: 14px;
+        font-size: 12px;
         left: 151px;
         top: 77px;
         width: 87px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(3) {
-        font-size: 11px;
+        font-size: 10px;
         left: 368px;
-        top: 41px;
+        top: 42px;
         width: 65px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(4) {
-        font-size: 12px;
+        font-size: 10px;
         left: 737px;
-        top: 69px;
+        top: 70px;
         width: 65px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(5) {
-        font-size: 18px;
+        font-size: 15px;
         left: 931px;
-        top: 118px;
+        top: 120px;
         width: 89px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(6) {
-        font-size: 27px;
+        font-size: 22px;
         left: 779px;
-        top: 240px;
+        top: 244px;
         width: 126px;
     }
 }
@@ -841,44 +841,44 @@ a.desc:after {
     }
 
     .contacts > .contacts-info .secondary-menu a:first-child {
-        font-size: 28px;
+        font-size: 24px;
         left: 139px;
-        top: 198px;
+        top: 202px;
         width: 148px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(2) {
-        font-size: 14px;
+        font-size: 12px;
         left: 51px;
         top: 77px;
         width: 87px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(3) {
-        font-size: 11px;
+        font-size: 10px;
         left: 268px;
-        top: 41px;
+        top: 42px;
         width: 65px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(4) {
-        font-size: 12px;
+        font-size: 10px;
         left: 637px;
-        top: 69px;
+        top: 70px;
         width: 65px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(5) {
-        font-size: 18px;
+        font-size: 15px;
         left: 831px;
-        top: 118px;
+        top: 120px;
         width: 89px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(6) {
-        font-size: 27px;
+        font-size: 22px;
         left: 679px;
-        top: 240px;
+        top: 244px;
         width: 126px;
     }
 }
@@ -941,44 +941,44 @@ a.desc:after {
 
 @media (max-width: 900px) {
     .contacts > .contacts-info .secondary-menu a:first-child {
-        font-size: 25px;
+        font-size: 22px;
         left: 73px;
-        top: 173px;
+        top: 174px;
         width: 129px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(2) {
-        font-size: 12px;
+        font-size: 10px;
         left: -4px;
-        top: 67px;
+        top: 68px;
         width: 77px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(3) {
-        font-size: 10px;
+        font-size: 9px;
         left: 186px;
-        top: 36px;
+        top: 37px;
         width: 58px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(4) {
-        font-size: 11px;
+        font-size: 10px;
         left: 508px;
         top: 60px;
         width: 57px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(5) {
-        font-size: 16px;
+        font-size: 14px;
         left: 678px;
         top: 103px;
         width: 77px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(6) {
-        font-size: 23px;
+        font-size: 21px;
         left: 545px;
-        top: 210px;
+        top: 211px;
         width: 109px;
     }
 }
@@ -1051,46 +1051,46 @@ a.desc:after {
 }
 
 
-@media (min-width: 901px) and (max-width: 992px) {
+@media (min-width: 901px) and (max-width: 991px) {
     .contacts > .contacts-info .secondary-menu a:first-child {
-        font-size: 28px;
+        font-size: 24px;
         left: 28px;
-        top: 198px;
+        top: 202px;
         width: 148px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(2) {
-        font-size: 14px;
+        font-size: 12px;
         left: -59px;
         top: 77px;
         width: 87px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(3) {
-        font-size: 11px;
+        font-size: 10px;
         left: 159px;
-        top: 41px;
+        top: 42px;
         width: 65px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(4) {
-        font-size: 12px;
+        font-size: 10px;
         left: 527px;
-        top: 69px;
+        top: 70px;
         width: 65px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(5) {
-        font-size: 18px;
+        font-size: 15px;
         left: 721px;
-        top: 118px;
+        top: 120px;
         width: 89px;
     }
 
     .contacts > .contacts-info .secondary-menu a:nth-child(6) {
-        font-size: 27px;
+        font-size: 22px;
         left: 569px;
-        top: 240px;
+        top: 244px;
         width: 126px;
     }
 }
