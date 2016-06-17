@@ -7,6 +7,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = $page->title;
+echo phpinfo();
 ?>
 <div class="contacts">
     <div class="container contacts-info">
